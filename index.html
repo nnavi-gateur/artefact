@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick WebSocket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <p id="status">Connexion...</p>
+                <p id="battery">Batterie: --%</p>
+            </div>
+            <button id="gearBtn">⚙ Vitesse: 1</button>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="camera-container">
+                <img id="camera" src="" alt="Caméra">
+            </div>
+
+            <div class="controls-panel">
+                <div class="controls-row">
+                    <button id="stopBtn">⏹ Stop</button>
+                    <button id="autoBtn">▶ Auto</button>
+                    <button id="connectBTN">🔗 Connect</button>
+                </div>
+
+                <div id="initPosWrapper">
+                    <label for="initPos">Position initiale</label>
+                    <textarea class="textarea" id="initPos" placeholder='{"x":1,"y":2,"theta":90} ou 1,2,90'></textarea>
+                    <div id="initPosError">Format invalide ❌</div>
+                    <div id="initPosOk">Valide ✔</div>
+                </div>
+
+                <textarea class="textarea" id="key" placeholder="Clé de connexion"></textarea>
+            </div>
+        </div>
+
+        <!-- Joystick -->
+        <div class="joystick-panel">
+            <canvas id="joystick" width="300" height="300"></canvas>
+        </div>
+    </div>
+
+    <!-- Fullscreen -->
+    <div id="fullpage"></div>
+    <div id="fullscreenOverlay">
+        <button id="closeFullscreen">✕</button>
+        <span id="fullscreenInfo">Mode automatique</span>
+    </div>
+
+    <!-- Console -->
+    <div id="serverConsole">
+        <div id="consoleTitle">Console serveur</div>
+        <div id="consoleContent"></div>
+    </div>
+
+    <script src="hammer.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
